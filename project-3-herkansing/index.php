@@ -10,29 +10,23 @@
 </head>
 <body>
 <?php include 'navbar.php'; ?>
+ 
 
-<!--<video id="achtergrondvideo" autoplay muted loop>
-		<source src="img/achetrgrondvifeo.mp4" type="video/mp4">
-		<source src="img/achtergrondvideo.webm" type="video/webm">
-    <source src="img/achtergrondvideo.ogv" type="video/ogg">
-	</video>
-  -->
-
-  <div class="schoen_preview">
+<div class="schoen_preview">
     <div class="slideshow-container">
       <div class="my_slides">
         <img src="img/nikeairmaxalpha.png" class="schoen_slides">
         <div id="schoen_tekst">Nike Air Max Alpha Smoke Gray</div>
         <div id="schoen_info">De Nike Air Max Alpha demping biedt comfortabele stabiliteit voor het tillen, 
           of het nu een lichte of zware dag is.</div>
-        <button><a href="schoen2.php" class="koop_hier">Koop hier</a></button>
+        <button><a href="schoenen.php" class="koop_hier">Koop hier</a></button>
       </div>
 
       <div class="my_slides">
         <img src="img/nikeairmaxsystm.png" class="schoen_slides">
         <div id="schoen_tekst">Nike Air Max System Grey Blue</div>
         <div id="schoen_info">Je favoriete Max Air demping komt met serieuze jaren 80 flair in het Nike Air Max System.</div>
-        <button><a href="schoen3.php" class="koop_hier">Koop hier</a></button>
+        <button><a href="schoenen.php" class="koop_hier">Koop hier</a></button>
       </div>
 
       <div class="my_slides">
@@ -40,14 +34,14 @@
         <div id="schoen_tekst">Nike Sock Dart Premium Orange</div>
         <div id="schoen_info">Deze sneakers van Nike trek je eenvoudig aan dankzij de elastische 
           instap hebben ze een comfortabele pasvorm.</div>
-        <button><a href="schoen1.php" class="koop_hier">Koop hier</a></button>
+        <button><a href="schoenen.php" class="koop_hier">Koop hier</a></button>
       </div>
 
       <div class="my_slides">
         <img src="img/reeboknfx.png" class="schoen_slides">
         <div id="schoen_tekst">Reebok NFX Black</div>
         <div id="schoen_info">Reebok NFX-schoenen zijn ontworpen om je mee te nemen op een actieve dag.</div>
-        <button><a href="schoen4.php" class="koop_hier">Koop hier</a></button>
+        <button><a href="schoenen.php" class="koop_hier">Koop hier</a></button>
       </div>
 
       <div class="my_slides">
@@ -55,7 +49,7 @@
         <div id="schoen_tekst">Nike Air Max Alpha Trainer 5 Gray</div>
         <div id="schoen_info">Beëindig je laatste rep met kracht en rek het uit met een brul 
           die de vloer van de sportschool verbluft in de Nike Air Max Alpha Trainer 5.</div>
-        <button><a href="schoen5.php" class="koop_hier">Koop hier</a></button>
+        <button><a href="schoenen.php" class="koop_hier">Koop hier</a></button>
       </div>
 
       <a class="prev" onclick="plusSlides(-1)">❮</a>
