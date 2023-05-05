@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'database.php';
 $stmt = $connection->prepare('SELECT * FROM schoenen WHERE id = :id');
 $stmt->execute([ 'id' => $_GET['id'] ]);

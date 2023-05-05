@@ -17,8 +17,15 @@
         <li><a href="overons.php">Over Ons</a></li>
         <li><a href="contact.php">Contact</a></li>
         <li><a href="retour.php" id="eind_nav">Retourneren</a></li>
-        <li><a href="register.php">Registreren</a></li>
-        <li><a href="login.php">Inloggen</a></li>
+        <?php
+          if (isset($_SESSION["username"])) {
+            echo '<li>Ingelogd als ' . $_SESSION['username'] . '</li>
+            <li><a href="logout.php">Uitloggen</a></li>';
+          } else {
+            echo '<li><a href="register.php">Registreren</a></li>
+            <li><a href="login.php">Inloggen</a></li>';
+          }
+        ?>
     </ul>
   </nav>
 </body>
