@@ -17,6 +17,7 @@
         <li><a href="overons.php">Over Ons</a></li>
         <li><a href="contact.php">Contact</a></li>
         <li><a href="retour.php" id="eind_nav">Retourneren</a></li>
+        <li><a href="register.php">Registreren</a></li>
     </ul>
   </nav>
 </body>
