@@ -6,7 +6,11 @@ const filterButton = document.getElementById('filter-button');
 const products = document.querySelectorAll('.products');
 
 
-
+$('#brand-filter').on('change', function() {
+  let searchParams = new URLSearchParams()
+  searchParams.set('brand', this.value);
+  window.location.href = 'schoenen.php?' + searchParams.toString();
+});
 
 
 // Event listener for brand filter
@@ -31,6 +35,7 @@ function filterProducts() {
 
     // Check if product matches selected brand filter
     if (brandFilter.value && product.dataset.brand !== brandFilter.value) {
+      console.log(brandFilter.value);
       product.style.display = 'none';
       continue;
     }
