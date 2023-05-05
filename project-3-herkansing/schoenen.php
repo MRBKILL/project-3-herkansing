@@ -57,7 +57,7 @@ $schoenen = $statement->fetchAll();
 	    <label for="price-filter">Price:</label>
 			<input type="range" id="price" name="price" min="20" max="150">
 			<span id="price-value"></span>
-			<button id="filter-button">Filter</button>
+			
 		</aside>
 		
 		<main class="producten_main">
