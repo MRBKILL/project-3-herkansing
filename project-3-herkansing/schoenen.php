@@ -1,48 +1,51 @@
+
 <?php 
 session_start();
 include 'database.php';
+
+// Variabelen initialiseren
 $where = '';
 $currentBrand = '';
 $var = array();
+
+// Controleren of er een 'brand' parameter is ingesteld in de GET-querystring
 if (isset($_GET['brand']) && $_GET['brand'] != '') {
     $currentBrand = $_GET['brand'];
     $where = " WHERE merk LIKE ?";
     array_push($var, $currentBrand);
 }
 
+// Voorbereiden en uitvoeren van de databasequery
 $statement = $connection->prepare("SELECT * FROM schoenen" . $where);
 $statement->execute($var);
 $schoenen = $statement->fetchAll();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
-	<link rel="icon" href="img/schoenreus logo.png" type="image/x-icon">
+  <link rel="icon" href="img/schoenreus logo.png" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="js/jquery.range.css">
   <title>Schoenen</title>
 </head>
 <body>
-
-
-
 <?php include 'navbar.php'; ?>
-  <section>
-		<aside>
-			<h2 id="h2">Filters</h2> <br> <br>
-			<label for="brand-filter">Schoenmerk:</label>
-            <select id="brand-filter">
-                <option value="">Alles</option>
-                <?php
-                    $merken = $connection->query("SELECT DISTINCT(merk) FROM schoenen WHERE merk NOT LIKE ''");
-                    foreach ($merken as $merk) {
-                        $merk = $merk['merk'];
-                        $active = '';
+
+<section>
+    <aside>
+        <h2 id="h2">Filters</h2> <br> <br>
+        <label for="brand-filter">Schoenmerk:</label>
+        <select id="brand-filter">
+            <option value="">Alles</option>
+            <?php
+                // Opvragen van de unieke schoenmerken uit de database
+                $merken = $connection->query("SELECT DISTINCT(merk) FROM schoenen WHERE merk NOT LIKE ''");
+                foreach ($merken as $merk) {
+                    $merk = $merk['merk'];
+                    $active = '';
 
                         if ($merk == $currentBrand) {
                             $active = 'selected';
@@ -54,10 +57,7 @@ $schoenen = $statement->fetchAll();
             </select>
 
 <br> <br>
-	    <label for="price-filter">Price:</label>
-			<input type="range" id="price" name="price" min="20" max="150">
-			<span id="price-value"></span>
-			
+	  
 		</aside>
 		
 		<main class="producten_main">
