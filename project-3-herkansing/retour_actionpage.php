@@ -29,7 +29,6 @@ try {
         $reden = $_POST['reden'];
         $datumtijd = Date('d-m-Y');
         $stmt->execute();
-
         header('Location: retour.php');
 
     }
