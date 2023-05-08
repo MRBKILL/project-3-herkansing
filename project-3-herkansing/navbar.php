@@ -17,6 +17,7 @@
         <li><a href="overons.php">Over Ons</a></li>
         <li><a href="contact.php">Contact</a></li>
         <li><a href="retour.php" id="eind_nav">Retourneren</a></li>
+        <li><a href="crudschoenen.php">Admin panel</a></li>
         <?php
           if (isset($_SESSION["username"])) {
             echo '<li>Ingelogd als ' . $_SESSION['username'] . '</li>
