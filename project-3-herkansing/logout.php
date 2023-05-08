@@ -1,5 +1,3 @@
-
-
 <?php
 // sessie starten/stoppen ivm inloggen/uitloggen
 session_start();

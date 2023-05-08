@@ -20,14 +20,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if gebruikersnaam is empty
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
+        $username_err = "Vul aub uw gebruikersnaam in";
     } else{
         $username = trim($_POST["username"]);
     }
     
     // Check if wachtwoord is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
+        $password_err = "Vul aub uw wachtwoord in.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -67,15 +67,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: schoenen.php");
                         } else{
                             // wachtwoord fout laat een generic error message zien
-                            $login_err = "Invalid username or password.";
+                            $login_err = "Foute gebruikersnaam en/of wachtwoord.";
                         }
                     }
                 } else{
                     // Gebruikersnaam en of wachtwoord is fout
-                    $login_err = "Invalid username or password.";
+                    $login_err = "Foute gebruikersnaam en/of wachtwoord.";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oeps! Iets ging mis. Probeer het later opnieuw.";
             }
 
             // sluit statement
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div class="login">
   <div class="login-box">
     <h2>Login</h2>
-    <p>Vul je username en wachtwoord in om in te loggen.</p>
+    <p>Vul je gebruikersnaam en wachtwoord in om in te loggen.</p>
 
     <?php 
     if(!empty($login_err)){
@@ -116,12 +116,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
-            <label>Username</label>
+            <label>Gebruikersnaam</label>
             <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
         </div>   
         <div class="form-group">
-            <label>Password</label>
+            <label>Wachtwoord</label>
             <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
