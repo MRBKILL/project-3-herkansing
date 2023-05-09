@@ -1,5 +1,5 @@
 <?php
-// auteur: Wigmans
+
 // functie: algemene functies tbv hergebruik
  function ConnectDb(){
     $servername = "localhost";
@@ -48,8 +48,8 @@
     // $result = $conn->query("SELECT * FROM $table")->fetchAll();
 
     // Select data uit de opgegeven table methode prepare
-    $query = $conn->prepare("SELECT * FROM schoenen WHERE biercode = :biercode");
-    
+    $query = $conn->prepare("SELECT * FROM schoenen WHERE id = :id");
+    $query->execute([':id'=>$biercode]);
     $result = $query->fetch();
 
     return $result;
@@ -59,21 +59,12 @@
  function OvzBieren(){
 
     // Haal alle bier record uit de tabel 
-    $result = GetData("bier");
+    $result = GetData("schoenen");
     
     //print table
     PrintTable($result);
     //PrintTableTest($result);
     
- }
-
- function OvzBrouwers(){
-    // Haal alle bier record uit de tabel 
-    $result = GetData("brouwer");
-    
-    //print table
-    PrintTable($result);
-     
  }
 
  function PrintTableTest($result){
@@ -153,12 +144,12 @@ function PrintCrudBier($result){
         
         // Wijzig knopje
         $table .= "<td>". 
-            "<form method='post' action='update_bieren.php?biercode=$row[naam]' >       
+            "<form method='post' action='update_bieren.php?id=$row[id]' >       
                     <button name='wzg'>Wzg</button>	 
             </form>" . "</td>";
 
         // Delete via linkje href
-        $table .= '<td><a href="delete_bieren.php?biercode='.$row["naam"].'">verwijder</a></td>';
+        $table .= '<td><a href="delete_bieren.php?id='.$row["id"].'">verwijder</a></td>';
         
         $table .= "</tr>";
     }
@@ -166,24 +157,24 @@ function PrintCrudBier($result){
 
     echo $table;
 }
-
+// update bieren functie
 function UpdateBier($row){
     echo "Update row<br>";
 
     $conn = ConnectDb();
 
-    $sql = "UPDATE `bier` 
+    $sql = "UPDATE `schoenen` 
     SET 
+    `merk` = '$row[merk]', 
     `naam` = '$row[naam]', 
-    `soort` = '$row[soort]', 
-    `stijl` = '$row[stijl]', 
-    `alcohol` = '$row[alcohol]', 
-    `brouwcode` = '$row[brouwcode]'
-    WHERE `bier`.`biercode` = $row[biercode]";
+    `beschrijving` = '$row[beschrijving]', 
+    `prijs` = '$row[prijs]', 
+    `foto` = '$row[foto]'
+    WHERE `schoenen`.`id` = $row[id]";
     $query = $conn->prepare($sql);
-
+    $query->execute();
 }
-
+//delete bieren functie
 function DeleteBier($row){
     echo "delete row<br>";
 
@@ -191,9 +182,9 @@ function DeleteBier($row){
 
     $sql = "DELETE 
     FROM schoenen
-    WHERE `schoenen`.`biercode` = $row[biercode]";
+    WHERE `schoenen`.`id` = $row[id]";
     $query = $conn->prepare($sql);
-
+    $query->execute();
 }
 
 

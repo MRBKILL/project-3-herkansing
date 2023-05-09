@@ -1,4 +1,9 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <?php
+include 'navbar.php';
 
  echo "<h1>Delete Bier</h1>";
  require_once('functions.php');
@@ -7,13 +12,13 @@
  DeleteBier($_POST);
  header('Location: crud_bieren.php');
  }
- if(isset($_GET['biercode']))
+ if(isset($_GET['id']))
 
  {
 
 echo "Data uit het vorige formulier:<br>";
 
- $biercode = $_GET['biercode'];
+ $biercode = $_GET['id'];
 
  $row = GetBier($biercode);
 
@@ -23,12 +28,12 @@ echo "Data uit het vorige formulier:<br>";
 <html>
 <body>
 <form method="post">
-Id:<input type="text" name="biercode" value="<?php echo $row['naam'];?>" readonly><br>
-Merk: <input type="text" name="soort" value="<?= $row['soort']?>" readonly><br>
-Naam:<input type="text" name="naam" value="<?php echo $row['naam'];?>" readonly><br>
-Beschrijving: <input type="text" name="stijl" value="<?= $row['stijl']?>" readonly><br>
-Prijs: <input type="text" name="alcohol" value="<?= $row['alcohol']?>" readonly><br>
-Foto: <input type="text" name="brouwcode" value="<?= $row['brouwcode']?>" readonly><br><br>
+Biercode:<input type="" name="id" value="<?php echo $row['id'];?>" readonly><br>
+Naam:<input type="" name="merk" value="<?php echo $row['merk'];?>" readonly><br>
+Soort: <input type="text" name="naam" value="<?= $row['naam']?>" readonly><br>
+Stijl: <input type="text" name="beschrijving" value="<?= $row['beschrijving']?>" readonly><br>
+Alcohol: <input type="text" name="prijs" value="<?= $row['prijs']?>" readonly><br>
+Brouwcode: <input type="text" name="foto" value="<?= $row['foto']?>" readonly><br><br>
 
 
 <input type="submit" name="btn_wzg" value="Delete"><br>

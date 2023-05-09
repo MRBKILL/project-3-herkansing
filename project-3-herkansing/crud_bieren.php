@@ -3,9 +3,9 @@
     <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <section class="crud-page">
         <?php
         // functie: programma overzicht bieren
-        // auteur : Yasin Coban
         include 'navbar.php';
         include 'functions.php';
 // connect database bieren
@@ -14,6 +14,6 @@
         CrudBieren();
 
         ?>
-
+</section>
     </body>
 </html>
